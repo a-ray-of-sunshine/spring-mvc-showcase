@@ -234,6 +234,7 @@
 					</excludes>
 					<junitArtifactName>junit:junit</junitArtifactName>
 					<argLine>-Xmx512m</argLine>
+					<skip>true</skip>
 				</configuration>
 			</plugin>
 			<plugin>
