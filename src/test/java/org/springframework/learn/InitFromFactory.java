@@ -4,6 +4,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.Account;
 import org.springframework.beans.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -38,6 +39,20 @@ public class InitFromFactory {
 		User user = context.getBean("instanceUser", User.class);
 
 		logger.debug(user.toString());
+	}
+	
+	@Test
+	public void testAccount(){
+		Account account = context.getBean("account", Account.class);
+		
+		logger.debug(account.getUser().toString());
+		logger.debug(account.getEmail());
+
+		// 自动装配， bean account1的 user 是通过自动装配初始化的
+		account = context.getBean("account1", Account.class);
+		logger.debug(account.getUser().toString());
+		logger.debug(account.getEmail());
+
 	}
 
 }

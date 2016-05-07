@@ -20,4 +20,13 @@
 	<bean id="instanceFactory" class="org.springframework.beans.InstanceFactory"></bean>
 	<bean id="instanceUser" factory-bean="instanceFactory" factory-method="createUser"></bean>
 
+	<bean id="account" class="org.springframework.beans.Account">
+		<constructor-arg ref="user"></constructor-arg>	
+		<property name="email" value="abc@email.com"></property>
+	</bean>
+
+	<bean id="account1" class="org.springframework.beans.Account" autowire="constructor">
+		<property name="email" value="abc1@email.com"></property>
+	</bean>
+
 </beans>
