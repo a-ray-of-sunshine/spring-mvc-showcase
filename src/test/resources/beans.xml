@@ -12,5 +12,12 @@
 
 	<!-- 给 上面的 id为user 的bean 起一个别名 -->
 	<alias name="user" alias="lisi"/>
+	
+	<!-- 静态工厂 -->
+	<bean id="staticUser" class="org.springframework.beans.StaticFactory" factory-method="createUser"></bean>
+	
+	<!-- 实例工厂 -->
+	<bean id="instanceFactory" class="org.springframework.beans.InstanceFactory"></bean>
+	<bean id="instanceUser" factory-bean="instanceFactory" factory-method="createUser"></bean>
 
 </beans>
