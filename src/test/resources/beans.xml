@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
 	<bean id="user" class="org.springframework.beans.User">
 		<property name="name">
@@ -47,6 +49,15 @@
 		<replaced-method name="computeValue" replacer="repBean">
 			<arg-type>String</arg-type>	
 		</replaced-method>	
+	</bean>
+	
+	<!-- aop注入 -->
+	<bean id="account2" class="org.springframework.beans.Account" autowire="constructor" scope="prototype">
+		<property name="email" value="123bank@email.com"></property>
+		<aop:scoped-proxy/>
+	</bean>
+	<bean id="bank" class="org.springframework.methodinjection.Bank">
+		<property name="account" ref="account2"></property>	
 	</bean>
 
 </beans>

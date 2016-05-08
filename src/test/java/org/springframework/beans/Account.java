@@ -21,4 +21,8 @@ public class Account {
 	public User getUser() {
 		return user;
 	}
+	
+	public void doSomething(){
+		System.out.println(this);
+	}
 }
