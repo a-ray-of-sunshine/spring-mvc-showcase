@@ -40,4 +40,13 @@
 	<bean id="commandManager" class="org.springframework.methodinjection.CommandManager">
 		<lookup-method name="createCommand" bean="command"></lookup-method>
 	</bean>
+	
+	<!-- 任意方法注入 -->
+	<bean id="repBean" class="org.springframework.methodinjection.ReplacementComputeValue"></bean>
+	<bean id="calculator" class="org.springframework.methodinjection.MyValueCalculator">
+		<replaced-method name="computeValue" replacer="repBean">
+			<arg-type>String</arg-type>	
+		</replaced-method>	
+	</bean>
+
 </beans>
