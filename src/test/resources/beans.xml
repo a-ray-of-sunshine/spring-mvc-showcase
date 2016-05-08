@@ -54,10 +54,14 @@
 	<!-- aop注入 -->
 	<bean id="account2" class="org.springframework.beans.Account" autowire="constructor" scope="prototype">
 		<property name="email" value="123bank@email.com"></property>
-		<aop:scoped-proxy/>
+<!-- 		<aop:scoped-proxy/> -->
 	</bean>
 	<bean id="bank" class="org.springframework.methodinjection.Bank">
 		<property name="account" ref="account2"></property>	
 	</bean>
+
+	<!-- bean的生命周期 -->
+	<bean id="lifeBean" class="org.springframework.lifecycle.ExampleBean"></bean>
+	<bean id="annBean" class="org.springframework.lifecycle.AnnoationBean" init-method="init" destroy-method="destory"></bean>
 
 </beans>

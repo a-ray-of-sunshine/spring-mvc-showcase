@@ -9,7 +9,7 @@ public class ReplacementMethodTest extends Container{
 	@Test
 	public void test(){
 		
-		MyValueCalculator calc = this.context.getBean("calculator", MyValueCalculator.class);
+		MyValueCalculator calc = Container.context.getBean("calculator", MyValueCalculator.class);
 		
 		String result = calc.computeValue("678");
 

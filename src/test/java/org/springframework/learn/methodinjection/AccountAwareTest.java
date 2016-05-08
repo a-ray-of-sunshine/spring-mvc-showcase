@@ -12,7 +12,7 @@ public class AccountAwareTest extends Container{
 
 	@Test
 	public void test(){
-		AccountAware accountAware = this.context.getBean("accountAware", AccountAware.class);
+		AccountAware accountAware = Container.context.getBean("accountAware", AccountAware.class);
 
 		accountAware.LookupContext();
 		

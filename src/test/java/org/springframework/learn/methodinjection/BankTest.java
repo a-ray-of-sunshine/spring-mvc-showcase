@@ -9,7 +9,7 @@ public class BankTest extends Container {
 	@Test
 	public void test(){
 		
-		Bank bank = this.context.getBean("bank", Bank.class);
+		Bank bank = Container.context.getBean("bank", Bank.class);
 		System.out.println(bank);
 		
 		// bank (singleton) 对象的scope 比 account (prototype)大

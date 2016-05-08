@@ -9,7 +9,7 @@ public class CommandTest extends Container {
 	@Test
 	public void test(){
 		
-		CommandManager cm = this.context.getBean("commandManager", CommandManager.class);
+		CommandManager cm = Container.context.getBean("commandManager", CommandManager.class);
 		
 		System.out.println(cm);
 		
