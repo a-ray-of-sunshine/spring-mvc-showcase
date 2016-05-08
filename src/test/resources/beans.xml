@@ -34,4 +34,10 @@
 	<!-- aware -->
 	<bean id="accountAware" class="org.springframework.methodinjection.AccountAware"></bean>
 
+	<!-- 有状态的bean,其 scope 是 prototype -->
+	<bean id="command" class="org.springframework.methodinjection.Command" scope="prototype"></bean>
+	<!-- 无状态bean依赖于上面的有状态 bean -->
+	<bean id="commandManager" class="org.springframework.methodinjection.CommandManager">
+		<lookup-method name="createCommand" bean="command"></lookup-method>
+	</bean>
 </beans>
