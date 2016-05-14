@@ -62,8 +62,13 @@
 		<property name="account" ref="account2"></property>	
 	</bean>
 
-	<!-- bean的生命周期 -->
+	<!-- bean的生命周期 
 	<bean id="lifeBean" class="org.springframework.lifecycle.ExampleBean"></bean>
 	<bean id="annBean" class="org.springframework.lifecycle.AnnoationBean" init-method="init" destroy-method="destory"></bean>
+	-->
+
+	<!-- 基于注解的装配 -->
+	<context:annotation-config/>
+	<bean id="accAnnot" class="org.springframework.annotationinjection.AccountByAnnotation"></bean>
 
 </beans>
